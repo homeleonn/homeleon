@@ -1,0 +1,24 @@
+{
+    "name": "homeleon/framework",
+    "authors": [
+        {
+            "name": "Homeleon",
+            "email": "wirus@ukr.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "./app/",
+            "Core\\": "./Core/"
+        },
+        "files": ["Core/Support/helpers.php"]
+    },
+    "require": {
+        "php" : "^8.0",
+        "ext-mysqli": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "^4.11"
+    }
+}
