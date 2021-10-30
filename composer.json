@@ -1,8 +1,8 @@
 {
-    "name": "homeleon/framework2",
+    "name": "homeleon/framework-project",
     "authors": [
         {
-            "name": "Homeleon",
+            "name": "Pukhniuk Viktor",
             "email": "wirus@ukr.net"
         }
     ],
@@ -12,10 +12,23 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "vimeo/psalm": "^4.11"
+        "phpunit/phpunit": "^9.5"
     },
     "require": {
+        "php": ">=8.0",
         "homeleon/framework": "@dev"
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env.php.example') || copy('.env.example', '.env.php');\""
+        ],
+        "post-create-project-cmd": [
+            "@php fw"
+        ]
+    },
 }
