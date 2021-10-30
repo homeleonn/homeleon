@@ -16,6 +16,11 @@ if (!file_exists($dest)) {
     echo "Config file has been succesfully created.\n";
 }
 
-echo "Generating token...\nCopy next token to .env.php config file in field 'app_key'\n";
-echo Str::random(32);
-echo "\n";
+echo "Generating token...\n";
+// echo "Copy next token to .env.php config file in field 'app_key'\n";
+// echo Str::random(32);
+// echo "\n";
+$appKey = Str::random(32);
+$env = file_get_contents($dest);
+file_put_contents($dest, preg_replace("~(app_key.*)=>\s*'.*'~m", "$1=> '{$appKey}'", $env));
+echo "Success\n";
