@@ -3,13 +3,14 @@
 namespace App\Http\Providers;
 
 use Homeleon\Support\ServiceProvider;
-use Homeleon\Router\Route;
+use Homeleon\Support\Facades\DB;
+use stdClass;
 
-class RouteServiceProvider extends ServiceProvider
+class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Route::pattern('id', '\d+');
+        DB::setFetchMode(stdClass::class);
     }
 
     public function register() {}

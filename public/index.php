@@ -1,10 +1,11 @@
 <?php
 
 define('HTTP_SIDE', '');
+define('ROOT', dirname(__DIR__));
 
 require '../vendor/autoload.php';
 
-use Core\App;
+use Homeleon\App;
 
 try {
     $app = new App();
